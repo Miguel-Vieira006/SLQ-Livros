@@ -10,7 +10,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS livros (id INTEGER PRIMARY KEY AUTO
                autor TEXT, 
                ano INTEGER, 
                genero TEXT, 
-               disponivel BOOLEAN)""")
+               disponivel BOOLEAN DEFAULT 1)""") 
 banco.commit()
 
 #inserir 5 livros na tabela
@@ -21,5 +21,7 @@ cursor.execute("INSERT INTO livros (titulo, autor, ano, genero) VALUES  ('Queijo
 cursor.execute("INSERT INTO livros (titulo, autor, ano, genero) VALUES  ('Salsicha Gigante', 'Cachorro da Esquina', 2000,'Comédia')")
 banco.commit()
 
+#exibir todos os livros disponiveis
+cursor.execute("SELECT * FROM livros WHERE disponivel = 1")
 
 
