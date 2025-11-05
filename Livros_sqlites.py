@@ -32,3 +32,8 @@ cursor.execute("SELECT * FROM livros ORDER BY ano DESC")
 
 
 cursor.execute("DELETE FROM LIVROS WHERE ano < 1940")
+
+cursor.execute("""CREATE TABLE IF NOT EXISTS usuarios (
+               id INTEGER PRIMARY KEY AUTOINCREMENT,
+               NOME TEXT)""")
+banco.commit()
