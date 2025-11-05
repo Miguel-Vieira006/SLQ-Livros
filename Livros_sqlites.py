@@ -28,3 +28,5 @@ cursor.execute("SELECT * FROM livros WHERE disponivel = 1")
 cursor.execute("UPDATE livros SET disponivel = 0 WHERE id = 3")
 
 
+cursor.execute("SELECT * FROM livros ORDER BY ano DESC")
+
