@@ -21,7 +21,10 @@ cursor.execute("INSERT INTO livros (titulo, autor, ano, genero) VALUES  ('Queijo
 cursor.execute("INSERT INTO livros (titulo, autor, ano, genero) VALUES  ('Salsicha Gigante', 'Cachorro da Esquina', 2000,'Comédia')")
 banco.commit()
 
-#exibir todos os livros disponiveis
+
 cursor.execute("SELECT * FROM livros WHERE disponivel = 1")
+
+
+cursor.execute("UPDATE livros SET disponivel = 0 WHERE id = 3")
 
 
