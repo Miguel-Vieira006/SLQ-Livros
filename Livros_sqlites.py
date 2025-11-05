@@ -30,3 +30,5 @@ cursor.execute("UPDATE livros SET disponivel = 0 WHERE id = 3")
 
 cursor.execute("SELECT * FROM livros ORDER BY ano DESC")
 
+
+cursor.execute("DELETE FROM LIVROS WHERE ano < 1940")
