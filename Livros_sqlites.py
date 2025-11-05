@@ -44,8 +44,16 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS usuarios (
 banco.commit()
 
 #adicionando a coluna idade na tabela usuarios
-cursor.execute("PRAGMA table_info(usuarios)")                           #verifica se a coluna idade ja existe
-cols = [r[1] for r in cursor.fetchall()]                                #cria uma lista com os nomes das colunas
-if 'idade' not in cols:                                                 #se a coluna idade nao existir, cria a coluna
+cursor.execute("PRAGMA table_info(usuarios)")           #verifica se a coluna idade ja existe
+cols = [r[1] for r in cursor.fetchall()]                #cria uma lista com os nomes das colunas
+if 'idade' not in cols:                                 #se a coluna idade nao existir, cria a coluna
     cursor.execute("ALTER TABLE usuarios ADD COLUMN idade INTEGER")
+banco.commit()
+
+#inserindo usuarios na tabela usuarios
+cursor.execute("SELECT COUNT(*) FROM usuarios")        #verifica se ja existem usuarios cadastrados
+if cursor.fetchone()[0] == 0:                          #se nao houver usuarios cadastrados, insere os usuarios, evitando duplicatas
+    cursor.execute("INSERT INTO usuarios (nome, idade) VALUES ('Jalin Mamei', 22)")
+    cursor.execute("INSERT INTO usuarios (nome, idade) VALUES ('Deide Costas', 31)")
+    cursor.execute("INSERT INTO usuarios (nome, idade) VALUES ('Fabio Santos', 18)")
 banco.commit()
