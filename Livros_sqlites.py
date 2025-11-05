@@ -57,3 +57,6 @@ if cursor.fetchone()[0] == 0:                          #se nao houver usuarios c
     cursor.execute("INSERT INTO usuarios (nome, idade) VALUES ('Deide Costas', 31)")
     cursor.execute("INSERT INTO usuarios (nome, idade) VALUES ('Fabio Santos', 18)")
 banco.commit()
+
+cursor.execute("DROP TABLE IF EXISTS usuarios")          #deleta a tabela usuarios
+banco.commit()
